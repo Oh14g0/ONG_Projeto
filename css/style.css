@@ -1,0 +1,515 @@
+:root {
+    /* CORES */
+    --azul-primario: #2563EB;
+    --azul-escuro: #1E3A8A;
+    --azul-medio: #1D4ED8;
+    --azul-claro: #DBEAFE;
+    --azul-destaque: #60A5FA;
+
+    --neutro-escuro: #1F2937;
+    --neutro-medio: #6B7280;
+    --neutro-claro: #F3F4F6;
+    --branco: #FFFFFF;
+
+    /* TIPOGRAFIA */
+    --texto-xs: 12px;
+    --texto-sm: 14px;
+    --texto-base: 16px;
+    --texto-lg: 24px;
+    --texto-xl: 32px;
+
+    /* ESPAÇAMENTOS */
+    --espaco-1: 4px;
+    --espaco-2: 8px;
+    --espaco-3: 16px;
+    --espaco-4: 24px;
+    --espaco-5: 32px;
+}
+
+
+/* GERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: var(--texto-base);
+    line-height: 1.5;
+    color: var(--neutro-escuro);
+    background-color: #f8fafc;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 12px 20px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+/* NAV */
+
+nav {
+    grid-column: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: var(--azul-medio);
+}
+
+
+/* CONTEÚDO */
+
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+main > h2 {
+    color: var(--azul-escuro);
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* FORMULÁRIO */
+
+form {
+    background-color: var(--branco);
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+fieldset {
+    border: 1px solid #dbe3ef;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 0 20px 0;
+}
+
+legend {
+    color: var(--azul-escuro);
+    font-weight: bold;
+    font-size: 17px;
+    padding: 0 8px;
+}
+
+
+/* CAMPOS */
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--azul-primario);
+    box-shadow: 0 0 0 2px var(--azul-claro);
+}
+
+
+/* ORGANIZAÇÃO DOS CAMPOS */
+
+form br {
+    display: none;
+}
+
+
+/* DADOS PESSOAIS */
+
+fieldset:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    row-gap: 12px;
+}
+
+
+/* Nome */
+
+fieldset:first-of-type label[for="nome"] {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+
+fieldset:first-of-type #nome {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    width: 100%;
+    padding: 10px 12px;
+}
+
+
+/* E-mail */
+
+fieldset:first-of-type label[for="email"] {
+    grid-column: 4 / 7;
+    grid-row: 1;
+}
+
+fieldset:first-of-type #email {
+    grid-column: 4 / 7;
+    grid-row: 2;
+    width: 100%;
+    padding: 10px 12px;
+}
+
+
+/* DATA, CPF E TELEFONE */
+
+.campo-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+fieldset:first-of-type .campo-inline:nth-of-type(1) {
+    grid-column: 1 / 3;
+    grid-row: 3;
+}
+
+fieldset:first-of-type .campo-inline:nth-of-type(2) {
+    grid-column: 3 / 5;
+    grid-row: 3;
+}
+
+fieldset:first-of-type .campo-inline:nth-of-type(3) {
+    grid-column: 5 / 7;
+    grid-row: 3;
+}
+
+.campo-inline label {
+    white-space: nowrap;
+    margin: 0;
+    font-size: 13px;
+}
+
+.campo-inline input {
+    width: 100%;
+    min-width: 0;
+    padding: 7px 8px;
+    font-size: 13px;
+}
+
+
+/* ENDEREÇO, CIDADE E ESTADO */
+
+.endereco-cidade-estado {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 80px;
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 16px;
+}
+
+.endereco-cidade-estado label {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.endereco-cidade-estado input {
+    width: 100%;
+}
+
+/* CEP */
+
+.campo-cep {
+    width: 150px;
+}
+
+.campo-cep label {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.campo-cep input {
+    width: 130px;
+}
+
+
+/* BOTÃO */
+
+button {
+    display: block;
+    margin: 0 auto;
+
+    background-color: var(--azul-primario);
+    color: var(--branco);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--azul-medio);
+}
+
+
+/* PROJETOS / OUTRAS PÁGINAS */
+
+main > section {
+    background-color: var(--branco);
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border-left: 4px solid var(--azul-primario);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+main > section h2,
+main > section h3 {
+    color: var(--azul-escuro);
+    margin-top: 0;
+}
+
+main > section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+main > section p {
+    margin-bottom: 0;
+}
+
+
+/* Link do cadastro */
+
+.link-cadastro {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: var(--azul-primario);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.link-cadastro:hover {
+    background-color: var(--azul-medio);
+}
+
+
+/* IMAGENS */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px 0;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: var(--neutro-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 14px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+
+/* RESPONSIVIDADE */
+
+/* 1 - Celular pequeno */
+
+@media (max-width: 480px) {
+
+    header {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav {
+        grid-column: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    main > h2 {
+        font-size: 23px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    fieldset {
+        padding: 15px;
+    }
+
+    /* Dados pessoais */
+
+    fieldset:first-of-type {
+        grid-template-columns: 1fr;
+    }
+
+    fieldset:first-of-type label[for="nome"],
+    fieldset:first-of-type #nome,
+    fieldset:first-of-type label[for="email"],
+    fieldset:first-of-type #email,
+    fieldset:first-of-type .campo-inline:nth-of-type(1),
+    fieldset:first-of-type .campo-inline:nth-of-type(2),
+    fieldset:first-of-type .campo-inline:nth-of-type(3) {
+        grid-column: 1;
+    }
+
+    fieldset:first-of-type label[for="nome"] {
+        grid-row: 1;
+    }
+
+    fieldset:first-of-type #nome {
+        grid-row: 2;
+    }
+
+    fieldset:first-of-type label[for="email"] {
+        grid-row: 3;
+    }
+
+    fieldset:first-of-type #email {
+        grid-row: 4;
+    }
+
+    fieldset:first-of-type .campo-inline:nth-of-type(1) {
+        grid-row: 5;
+    }
+
+    fieldset:first-of-type .campo-inline:nth-of-type(2) {
+        grid-row: 6;
+    }
+
+    fieldset:first-of-type .campo-inline:nth-of-type(3) {
+        grid-row: 7;
+    }
+
+
+    /* Endereço */
+
+    .endereco-cidade-estado {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .endereco-cidade-estado .campo-estado input {
+        width: 60px;
+    }
+
+    .campo-cep {
+        width: 130px;
+    }
+
+    main > section {
+        padding: 16px;
+    }
+}
+
+
+/* 2 - Celular */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    main {
+        max-width: 700px;
+    }
+
+    .endereco-cidade-estado {
+        grid-template-columns: 1.5fr 1fr 70px;
+        gap: 12px;
+    }
+}
+
+
+/* 3 - Tablet */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    main {
+        max-width: 850px;
+    }
+}
+
+
+/* 4 - Desktop */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    main {
+        max-width: 950px;
+    }
+}
+
+
+/* 5 - Desktop grande */
+
+@media (min-width: 1200px) {
+
+    main {
+        max-width: 1000px;
+    }
+}
