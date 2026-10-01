@@ -86,6 +86,21 @@ nav a:hover {
 }
 
 
+/* MENU HAMBURGUER */
+
+#menu-toggle {
+    display: none;
+}
+
+.hamburguer {
+    display: none;
+    color: var(--branco);
+    font-size: 28px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
 /* CONTEÚDO */
 
 main {
@@ -256,6 +271,7 @@ fieldset:first-of-type .campo-inline:nth-of-type(3) {
     width: 100%;
 }
 
+
 /* CEP */
 
 .campo-cep {
@@ -381,10 +397,21 @@ footer p {
         font-size: 20px;
     }
 
+    .hamburguer {
+        display: block;
+    }
+
     nav {
         grid-column: 1;
         flex-wrap: wrap;
         justify-content: center;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #menu-toggle:checked ~ nav {
+        display: flex;
     }
 
     main {
@@ -512,4 +539,53 @@ footer p {
     main {
         max-width: 1000px;
     }
+}
+
+/* BADGE */
+
+.badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 4px 8px;
+    background-color: var(--azul-primario);
+    color: var(--branco);
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+
+/* MENSAGEM DO CADASTRO */
+
+.cadastro-mensagem {
+    display: none;
+    margin: 15px auto 0;
+    padding: 10px 15px;
+    max-width: 520px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cadastro-mensagem.mensagem-sucesso,
+.cadastro-mensagem.mensagem-erro {
+    display: block;
+}
+
+.cadastro-mensagem.mensagem-sucesso {
+    color: #166534;
+    background-color: #DCFCE7;
+    border: 1px solid #86EFAC;
+}
+
+.cadastro-mensagem.mensagem-erro {
+    color: #B91C1C;
+    background-color: #FEE2E2;
+    border: 1px solid #FCA5A5;
+}
+
+.campo-invalido {
+    border: 2px solid #DC2626 !important;
 }
